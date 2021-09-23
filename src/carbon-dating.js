@@ -18,6 +18,7 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 export default function dateSample( sampleActivity ) {
+  if (typeof sampleActivity === 'string') {
   let sample = parseFloat(sampleActivity);
   if (typeof sample === 'number' && sample < 9000 && sample > 0) {
     let k = 0.693 / HALF_LIFE_PERIOD;
@@ -32,4 +33,8 @@ export default function dateSample( sampleActivity ) {
   else {
     return false;
   }
+}
+else {
+  return false;
+}
 }
